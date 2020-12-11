@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Billy Joe Azur</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/fontawesome/css/all.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Billy" asp-action="Index" >
+                    <img src="~/img/Icon.png" width="60" height="60" class="d-inline-block align-top"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Index"><i class="fas fa-home fa-2x" title="Home"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="About"><i class="fas fa-address-card fa-2x" title="About"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Skills"><i class="fas fa-user-cog fa-2x" title="Skills"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Projects"><i class="fas fa-briefcase fa-2x" title="Projects"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Contact"><i class="fas fa-envelope fa-2x" title="Contact"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 Billy Joe Azur
+            <a href="https://twitter.com/BillyJo96582957"><i class="fab fa-twitter fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
+            <a href="https://www.linkedin.com/in/billy-joe-azur-444750173/"><i class="fab fa-linkedin fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
+            <a href="https://web.facebook.com/billyjoeazur123"><i class="fab fa-facebook fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
+            @*<a class="justify-content-end col-md-10" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
