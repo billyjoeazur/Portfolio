@@ -12,25 +12,25 @@ namespace Portfolio.Services
 	public class EmailServices : IEmailServices
 	{
 		private readonly string _mailServer;
-		private readonly string _sender;
+		private readonly string _myMail;
 		private readonly string _mailPort;
 		private readonly string _password;
-		private readonly string _senderName;
+		//private readonly string _senderName;
 		public EmailServices(IConfiguration configuration)
 		{
 			_mailServer = configuration.GetSection("EmailSettings").GetSection("MailServer").Value;
-			_sender = configuration.GetSection("EmailSettings").GetSection("Sender").Value;
+			_myMail = configuration.GetSection("EmailSettings").GetSection("Sender").Value;
 			_mailPort = configuration.GetSection("EmailSettings").GetSection("MailPort").Value;
 			_password = configuration.GetSection("EmailSettings").GetSection("Password").Value;
-			_senderName = configuration.GetSection("EmailSettings").GetSection("SenderName").Value;
+			//_senderName = configuration.GetSection("EmailSettings").GetSection("SenderName").Value;
 		}
 		public async Task SendEmail(EmailModel model)
 		{
 			try
 			{
 				var mimeMessage = new MimeMessage();
-				mimeMessage.From.Add(new MailboxAddress(_senderName, _sender));
-				mimeMessage.To.Add(MailboxAddress.Parse(model.To));
+				mimeMessage.From.Add(new MailboxAddress(model.Mail, model.Mail));
+				mimeMessage.To.Add(MailboxAddress.Parse(_myMail));
 				mimeMessage.Subject = model.Subject;
 				mimeMessage.Body = new TextPart("html")
 				{
@@ -41,7 +41,7 @@ namespace Portfolio.Services
 				{
 					int port = Convert.ToInt32(_mailPort);
 					await client.ConnectAsync(_mailServer, port, true);
-					await client.AuthenticateAsync(_sender, _password);
+					await client.AuthenticateAsync(_myMail, _password);
 					await client.SendAsync(mimeMessage);
 					await client.DisconnectAsync(true);
 				}

@@ -8,8 +8,10 @@ namespace Portfolio.Models
 {
 	public class EmailModel
 	{
+
 		[Required]
-		public string To { get; set; }
+		[EmailAddress]
+		public string Mail { get; set; }
 
 		[Required]
 		public string Subject { get; set; }
