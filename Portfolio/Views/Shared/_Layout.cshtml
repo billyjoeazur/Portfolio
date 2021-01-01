@@ -12,8 +12,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Billy" asp-action="Index" >
-                    <img src="~/img/Icon.png" width="60" height="60" class="d-inline-block align-top"></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Billy" asp-action="Index">
+                    <img src="~/img/Icon.png" width="60" height="60" class="d-inline-block align-top">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Projects"><i class="fas fa-briefcase fa-2x" title="Projects"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Billy" asp-action="Contact"><i class="fas fa-envelope fa-2x" title="Contact"></i></a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Email" asp-action="Index"><i class="fas fa-envelope fa-2x" title="Contact"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -57,6 +58,8 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
