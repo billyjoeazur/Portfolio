@@ -3,26 +3,61 @@
 *@
 @model EmailModel
 
-<div class="card">
-    <div class="card-body">
-        <form asp-controller="Email" asp-action="SendMail" type="Post">
+<p class="display-4 text-white font-weight-bold">Cantact Me<br /> </p>
+<br />
+<div class="row">
+    <div class="card col-md-5">
+        <div class="card-body">
+            <form name="myForm" asp-controller="Email" asp-action="SendMail" type="Post" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label class="label">Email :</label>
+                    <input type="text" asp-for="Mail" class="form-control" id="mail" />
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="label">Subject :</label>
+                    <input type="text" asp-for="Subject" class="form-control" id="subject"/>
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="label">Message :</label>
+                    <textarea class="form-control" asp-for="Message" id="message"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary" id="send">Send</button>
+
+            </form>
+    
+        </div>
+    
+
+    </div>
+    
+        <div class="card col-md-7 bg-light">
+        @* AIzaSyAWcsuqlko3unha7hHrorQtLEW2EP_lUOk *@
+        <div id="map" style="height:100%; width:auto"></div>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: 16.0382, lng: 120.8384 },
+                    zoom: 8
+                });
+                var marker = new google.maps.Marker({
+                    position: { lat: 16.0382, lng: 120.8384 },
+                    map: map
+                });
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '<h6>Calapugan, Natividad, Pangasinan<br>billyjoethreetwoone@gmail.com</h6>'
+                });
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+                
+            }
             
-            <div class="form-group">
-                <label class="label">Email :</label>
-                <input type="text" asp-for="Mail" class="form-control" />
-                <span asp-validation-for="Mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="label">Subject :</label>
-                <input type="text" asp-for="Subject" class="form-control" />
-                <span asp-validation-for="Subject" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="label">Message :</label>
-                <textarea class="form-control" asp-for="Message"></textarea>
-                <span asp-validation-for="Message" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Send</button>
-        </form>
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWcsuqlko3unha7hHrorQtLEW2EP_lUOk&callback=initMap"
+                type="text/javascript"></script>
     </div>
 </div>

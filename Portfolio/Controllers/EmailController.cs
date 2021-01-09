@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Controllers
 {
-	public class EmailController : Controller
+	public class EmailController : BaseController
 	{
 		private readonly IEmailServices _emailServices;
 
@@ -31,7 +31,10 @@ namespace Portfolio.Controllers
 			}
 
 			await _emailServices.SendEmail(model);
-			return RedirectToAction(nameof(Success));
+			//ModelState.Clear();
+			//return View(model);
+			Notify("Your e-mail has been successfully sent.");
+			return RedirectToAction("Index");
 		}
 
 		public IActionResult Success()

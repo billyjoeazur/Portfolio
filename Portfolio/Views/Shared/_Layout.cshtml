@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
@@ -49,7 +50,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 Billy Joe Azur
+            &copy; 2021 Billy Joe Azur
             <a href="https://twitter.com/BillyJo96582957"><i class="fab fa-twitter fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
             <a href="https://www.linkedin.com/in/billy-joe-azur-444750173/"><i class="fab fa-linkedin fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
             <a href="https://web.facebook.com/billyjoeazur123"><i class="fab fa-facebook fa-lg float-right" style="padding-top:20px; padding-left:20px"></i></a>
@@ -61,6 +62,8 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @await Html.PartialAsync("_notificationPartial")
     @RenderSection("Scripts", required: false)
 </body>
 </html>
