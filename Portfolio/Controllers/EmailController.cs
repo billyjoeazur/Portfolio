@@ -31,10 +31,8 @@ namespace Portfolio.Controllers
 			}
 
 			await _emailServices.SendEmail(model);
-			//ModelState.Clear();
-			//return View(model);
 			Notify("Your e-mail has been successfully sent.");
-			return RedirectToAction("Index");
+			return RedirectToAction(nameof(Index));
 		}
 
 		public IActionResult Success()
