@@ -47,6 +47,25 @@ namespace Portfolio.Controllers
 			return View();
 		}
 
+		public IActionResult IdSystem()
+		{
+			return View();
+		}
+
+		public IActionResult Filipiknows()
+		{
+			return View();
+		}
+
+		public IActionResult AttendanceDesktop()
+		{
+			return View();
+		}
+
+		public IActionResult AttendanceMobile()
+		{
+			return View();
+		}
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
